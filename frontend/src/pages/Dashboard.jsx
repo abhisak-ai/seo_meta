@@ -24,7 +24,7 @@ const Dashboard = () => {
     };
 
     try {
-      const response = await axios.get("http://localhost:3000/api/v1/dashboard", axiosConfig);
+      const response = await axios.get("https://seo-meta.onrender.com/api/v1/dashboard", axiosConfig);
       setData({ msg: response.data.msg, luckyNumber: response.data.secret });
     } catch (error) {
       toast.error(error.message);
@@ -34,7 +34,7 @@ const Dashboard = () => {
   const fetchHistory = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/v1/history",
+        "https://seo-meta.onrender.com/api/v1/history",
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setHistory(response.data.history);
@@ -62,7 +62,7 @@ const Dashboard = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/analyze",
+        "https://seo-meta.onrender.com/api/v1/analyze",
         { url },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -78,7 +78,7 @@ const Dashboard = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/suggest",
+        "https://seo-meta.onrender.com/api/v1/suggest",
         {
           tags: analyzeResult,
           url: linkRef.current.value
