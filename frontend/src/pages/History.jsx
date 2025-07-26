@@ -16,7 +16,7 @@ const History = () => {
   const fetchHistory = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/v1/history",
+        "https://seo-meta.onrender.com/api/v1/history",
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setHistory(response.data.history);
@@ -29,7 +29,7 @@ const History = () => {
     if (!window.confirm("Are you sure you want to delete this analysis?")) return;
     try {
       await axios.delete(
-        `http://localhost:3000/api/v1/history/${id}`,
+        `https://seo-meta.onrender.com/api/v1/history/${id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       toast.success("Deleted!");
